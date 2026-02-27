@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Citizen Queries</title>
+</head>
+
+<body style="font-family: Arial; background-color:#f4f6f9; margin:0;">
+
+<!-- Top Bar -->
+<div style="background-color:#1f3c88; color:white; padding:15px;">
+    <h2>ClearGov - Admin Query Panel</h2>
+</div>
+
+<div style="padding:30px;">
+
+    <h3>All Citizen Queries</h3>
+
+    {% for q in queries %}
+<div style="background:white; padding:20px; margin-bottom:20px; border-radius:8px;">
+    <p><b>Query ID:</b> {{ q.id }}</p>
+    <p><b>Citizen:</b> {{ q.name }}</p>
+    <p><b>Question:</b> {{ q.query }}</p>
+
+    <p><b>Status:</b> 
+        {% if q.status == "Pending" %}
+            <span style="color:red;">Pending</span>
+        {% else %}
+            <span style="color:green;">Answered</span>
+        {% endif %}
+    </p>
+
+    {% if q.status == "Pending" %}
+        <form method="POST">
+            <input type="hidden" name="query_index" value="{{ loop.index0 }}">
+            <input type="text" name="answer" placeholder="Type your answer..." required style="width:70%;">
+            <button type="submit">Reply</button>
+        </form>
+    {% else %}
+        <p><b>Answer:</b> {{ q.answer }}</p>
+    {% endif %}
+</div>
+{% endfor %}
+</div>
+
+</body>
+</html>
