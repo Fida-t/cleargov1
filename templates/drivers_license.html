@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driving License Documents</title>
+    <h2>Driving License</h2>
+</head>
+<body>
+    <h2>Required Documents</h2>
+    <ul>
+        {% for doc in docs %}
+            <li>{{ doc }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Steps</h2>
+    <ol>
+        {% for step in process_steps %}
+            <li>{{ step }}</li>
+        {% endfor %}
+    </ol>
+
+    <h2>Total Cost</h2>
+    <p>
+        {{ cost }}
+    </p>
+</body>
+</html>

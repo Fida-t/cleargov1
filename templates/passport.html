@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passport Services - ClearGov</title>
+</head>
+<body>
+
+    <h1>Passport Categories</h1>
+
+    {% for category, details in passport_data.items() %}
+        
+        <h2>{{ category }}</h2>
+
+        <h3>Required Documents</h3>
+        <ul>
+            {% for doc in details.documents %}
+                <li>{{ doc }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Total Cost</h3>
+        <p>{{ details.cost }}</p>
+
+        <hr>
+
+    {% endfor %}
+
+</body>
+</html>

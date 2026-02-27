@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voter ID - ClearGov</title>
+    <h1>Voters ID</h1>
+</head>
+<body>
+
+
+    <h2>Required Documents</h2>
+    <ul>
+        {% for doc in docs %}
+            <li>{{ doc }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Application Steps</h2>
+    <ol>
+        {% for step in process_steps %}
+            <li>{{ step }}</li>
+        {% endfor %}
+    </ol>
+
+    <h2>Total Cost</h2>
+    <p>{{ cost }}</p>
+
+</body>
+</html>
